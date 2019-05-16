@@ -1,0 +1,8 @@
+C:\Users\Alumno\source\repos\YsProject\YsProject\bin\Debug\YsProject.exe.config
+C:\Users\Alumno\source\repos\YsProject\YsProject\bin\Debug\YsProject.exe
+C:\Users\Alumno\source\repos\YsProject\YsProject\bin\Debug\YsProject.pdb
+C:\Users\Alumno\source\repos\YsProject\YsProject\obj\Debug\YsProject.csprojAssemblyReference.cache
+C:\Users\Alumno\source\repos\YsProject\YsProject\obj\Debug\YsProject.csproj.CoreCompileInputs.cache
+C:\Users\Alumno\source\repos\YsProject\YsProject\obj\Debug\YsProject.exe
+C:\Users\Alumno\source\repos\YsProject\YsProject\obj\Debug\YsProject.pdb
+C:\Users\Alumno\source\repos\YsProject\YsProject\obj\Debug\YsProject.csproj.CopyComplete

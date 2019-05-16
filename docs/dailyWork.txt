@@ -1,0 +1,10 @@
+17 - 04 - 2019, Diego Lezcano: Created game basic structure and main menu.
+
+06 - 05 - 2019, Diego Lezcano: Create classes Controls and ChangeControlsMenu, 
+detect if a suitable key has been pressed
+
+13 - 05 - 2019, Diego Lezcano: class diagram, created de Menu class and made MainMenu 
+	and ChangeConstrolsMenu inherit from it
+
+15 - 05 - 2019, Diego Lezcano: implemented the DetectKey method wich returns te key code of the pressed key.
+	Implemented the KeyInUse method from the Controls class
