@@ -26,6 +26,8 @@ class Ys
 
             if(main.GetChosenOption() == 1)
             {
+                SaveMenu newGame = new SaveMenu();
+                newGame.Run();
                 Game ys = new Game();
             }
             else if (main.GetChosenOption() == 2)

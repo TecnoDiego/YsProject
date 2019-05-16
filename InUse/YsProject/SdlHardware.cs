@@ -548,5 +548,185 @@ class SdlHardware
             return -1;
         }
     }
+
+    public static string KeyToString(int keyCode)
+    {
+        if (keyCode == SdlHardware.KEY_ESC)
+        {
+            return "ESC";
+        }
+        else if (keyCode == SdlHardware.KEY_SPC)
+        {
+            return "SPC";
+        }
+        else if (keyCode == SdlHardware.KEY_A)
+        {
+            return "A";
+        }
+        else if (keyCode == SdlHardware.KEY_B)
+        {
+            return "B";
+        }
+        else if (keyCode == SdlHardware.KEY_C)
+        {
+            return "C";
+        }
+        else if (keyCode == SdlHardware.KEY_D)
+        {
+            return "D";
+        }
+        else if (keyCode == SdlHardware.KEY_E)
+        {
+            return "E";
+        }
+        else if (keyCode == SdlHardware.KEY_F)
+        {
+            return "F";
+        }
+        else if (keyCode == SdlHardware.KEY_G)
+        {
+            return "G";
+        }
+        else if (keyCode == SdlHardware.KEY_H)
+        {
+            return "H";
+        }
+        else if (keyCode == SdlHardware.KEY_I)
+        {
+            return "I";
+        }
+        else if (keyCode == SdlHardware.KEY_J)
+        {
+            return "J";
+        }
+        else if (keyCode == SdlHardware.KEY_K)
+        {
+            return "K";
+        }
+        else if (keyCode == SdlHardware.KEY_L)
+        {
+            return "L";
+        }
+        else if (keyCode == SdlHardware.KEY_M)
+        {
+            return "M";
+        }
+        else if (keyCode == SdlHardware.KEY_N)
+        {
+            return "N";
+        }
+        else if (keyCode == SdlHardware.KEY_O)
+        {
+            return "O";
+        }
+        else if (keyCode == SdlHardware.KEY_P)
+        {
+            return "P";
+        }
+        else if (keyCode == SdlHardware.KEY_Q)
+        {
+            return "Q";
+        }
+        else if (keyCode == SdlHardware.KEY_R)
+        {
+            return "R";
+        }
+        else if (keyCode == SdlHardware.KEY_S)
+        {
+            return "S";
+        }
+        else if (keyCode == SdlHardware.KEY_T)
+        {
+            return "T";
+        }
+        else if (keyCode == SdlHardware.KEY_U)
+        {
+            return "U";
+        }
+        else if (keyCode == SdlHardware.KEY_V)
+        {
+            return "V";
+        }
+        else if (keyCode == SdlHardware.KEY_W)
+        {
+            return "W";
+        }
+        else if (keyCode == SdlHardware.KEY_X)
+        {
+            return "X";
+        }
+        else if (keyCode == SdlHardware.KEY_Y)
+        {
+            return "Y";
+        }
+        else if (keyCode == SdlHardware.KEY_Z)
+        {
+            return "Z";
+        }
+        else if (keyCode == SdlHardware.KEY_1)
+        {
+            return "1";
+        }
+        else if (keyCode == SdlHardware.KEY_2)
+        {
+            return "2";
+        }
+        else if (keyCode == SdlHardware.KEY_3)
+        {
+            return "3";
+        }
+        else if (keyCode == SdlHardware.KEY_4)
+        {
+            return "4";
+        }
+        else if (keyCode == SdlHardware.KEY_5)
+        {
+            return "5";
+        }
+        else if (keyCode == SdlHardware.KEY_6)
+        {
+            return "6";
+        }
+        else if (keyCode == SdlHardware.KEY_7)
+        {
+            return "7";
+        }
+        else if (keyCode == SdlHardware.KEY_8)
+        {
+            return "8";
+        }
+        else if (keyCode == SdlHardware.KEY_9)
+        {
+            return "9";
+        }
+        else if (keyCode == SdlHardware.KEY_0)
+        {
+            return "0";
+        }
+        else if (keyCode == SdlHardware.KEY_UP)
+        {
+            return "UP";
+        }
+        else if (keyCode == SdlHardware.KEY_DOWN)
+        {
+            return "DOWN";
+        }
+        else if (keyCode == SdlHardware.KEY_RIGHT)
+        {
+            return "RIGHT";
+        }
+        else if (keyCode == SdlHardware.KEY_LEFT)
+        {
+            return "LEFT";
+        }
+        else if (keyCode == SdlHardware.KEY_RETURN)
+        {
+            return "RETURN";
+        }
+        else
+        {
+            return "";
+        }
+    }
 }
 

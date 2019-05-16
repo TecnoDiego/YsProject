@@ -50,7 +50,7 @@ class Controls
 
     public bool CheckKeysInUse()
     {
-        if (SdlHardware.KeyPressed(GetUp()) ||
+       if (SdlHardware.KeyPressed(GetUp()) ||
                 SdlHardware.KeyPressed(GetDown()) ||
                 SdlHardware.KeyPressed(GetLeft()) ||
                 SdlHardware.KeyPressed(GetRight()) ||
@@ -72,6 +72,45 @@ class Controls
 
     public void SwapKey(int currentKey, int newKey)
     {
-
+        if (currentKey == up)
+        {
+            SetUp(newKey);
+        }
+        else if (currentKey == down)
+        {
+            SetDown(newKey);
+        }
+        else if (currentKey == left)
+        {
+            SetLeft(newKey);
+        }
+        else if (currentKey == right)
+        {
+            SetRight(newKey);
+        }
+        else if (currentKey == useItem)
+        {
+            SetUseItem(newKey);
+        }
+        else if (currentKey == inventory)
+        {
+            SetInventory(newKey);
+        }
+        else if (currentKey == pause)
+        {
+            SetPause(newKey);
+        }
+        else if (currentKey == accept)
+        {
+            SetAccept(newKey);
+        }
+        else if (currentKey == cancel)
+        {
+            SetCancel(newKey);
+        }
+        else if (currentKey == toggleWalk)
+        {
+            SetToggleWalk(newKey);
+        }
     }
 }
