@@ -368,180 +368,185 @@ class SdlHardware
     public static int KEY_RIGHT = Sdl.SDLK_RIGHT;
     public static int KEY_LEFT = Sdl.SDLK_LEFT;
     public static int KEY_RETURN = Sdl.SDLK_RETURN;
+    public static int KEY_DEL = Sdl.SDLK_DELETE;
 
     public static int DetectKey()
     {
-        if (SdlHardware.KeyPressed(SdlHardware.KEY_ESC))
+        if (KeyPressed(KEY_ESC))
         {
-            return SdlHardware.KEY_ESC;
+            return KEY_ESC;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_SPC))
+        else if (KeyPressed(KEY_SPC))
         {
-            return SdlHardware.KEY_SPC;
+            return KEY_SPC;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_A))
+        else if (KeyPressed(KEY_DEL))
         {
-            return SdlHardware.KEY_A;
+            return KEY_DEL;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_B))
+        else if (KeyPressed(KEY_A))
         {
-            return SdlHardware.KEY_B;
+            return KEY_A;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_C))
+        else if (KeyPressed(KEY_B))
         {
-            return SdlHardware.KEY_C;
+            return KEY_B;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_D))
+        else if (KeyPressed(KEY_C))
         {
-            return SdlHardware.KEY_D;
+            return KEY_C;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_E))
+        else if (KeyPressed(KEY_D))
         {
-            return SdlHardware.KEY_E;
+            return KEY_D;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_F))
+        else if (KeyPressed(KEY_E))
         {
-            return SdlHardware.KEY_F;
+            return KEY_E;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_G))
+        else if (KeyPressed(KEY_F))
         {
-            return SdlHardware.KEY_G;
+            return KEY_F;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_H))
+        else if (KeyPressed(KEY_G))
         {
-            return SdlHardware.KEY_H;
+            return KEY_G;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_I))
+        else if (KeyPressed(KEY_H))
         {
-            return SdlHardware.KEY_I;
+            return KEY_H;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_J))
+        else if (KeyPressed(KEY_I))
         {
-            return SdlHardware.KEY_J;
+            return KEY_I;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_K))
+        else if (KeyPressed(KEY_J))
         {
-            return SdlHardware.KEY_K;
+            return KEY_J;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_L))
+        else if (KeyPressed(KEY_K))
         {
-            return SdlHardware.KEY_L;
+            return KEY_K;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_M))
+        else if (KeyPressed(KEY_L))
         {
-            return SdlHardware.KEY_M;
+            return KEY_L;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_N))
+        else if (KeyPressed(KEY_M))
         {
-            return SdlHardware.KEY_N;
+            return KEY_M;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_O))
+        else if (KeyPressed(KEY_N))
         {
-            return SdlHardware.KEY_O;
+            return KEY_N;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_P))
+        else if (KeyPressed(KEY_O))
         {
-            return SdlHardware.KEY_P;
+            return KEY_O;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_Q))
+        else if (KeyPressed(KEY_P))
         {
-            return SdlHardware.KEY_Q;
+            return KEY_P;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_R))
+        else if (KeyPressed(KEY_Q))
         {
-            return SdlHardware.KEY_R;
+            return KEY_Q;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_S))
+        else if (KeyPressed(KEY_R))
         {
-            return SdlHardware.KEY_S;
+            return KEY_R;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_T))
+        else if (KeyPressed(KEY_S))
         {
-            return SdlHardware.KEY_T;
+            return KEY_S;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_U))
+        else if (KeyPressed(KEY_T))
         {
-            return SdlHardware.KEY_U;
+            return KEY_T;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_V))
+        else if (KeyPressed(KEY_U))
         {
-            return SdlHardware.KEY_V;
+            return KEY_U;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_W))
+        else if (KeyPressed(KEY_V))
         {
-            return SdlHardware.KEY_W;
+            return KEY_V;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_X))
+        else if (KeyPressed(KEY_W))
         {
-            return SdlHardware.KEY_X;
+            return KEY_W;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_Y))
+        else if (KeyPressed(KEY_X))
         {
-            return SdlHardware.KEY_Y;
+            return KEY_X;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_Z))
+        else if (KeyPressed(KEY_Y))
         {
-            return SdlHardware.KEY_Z;
+            return KEY_Y;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_1))
+        else if (KeyPressed(KEY_Z))
         {
-            return SdlHardware.KEY_1;
+            return KEY_Z;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_2))
+        else if (KeyPressed(KEY_1))
         {
-            return SdlHardware.KEY_2;
+            return KEY_1;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_3))
+        else if (KeyPressed(KEY_2))
         {
-            return SdlHardware.KEY_3;
+            return KEY_2;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_4))
+        else if (KeyPressed(KEY_3))
         {
-            return SdlHardware.KEY_4;
+            return KEY_3;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_5))
+        else if (KeyPressed(KEY_4))
         {
-            return SdlHardware.KEY_5;
+            return KEY_4;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_6))
+        else if (KeyPressed(KEY_5))
         {
-            return SdlHardware.KEY_6;
+            return KEY_5;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_7))
+        else if (KeyPressed(KEY_6))
         {
-            return SdlHardware.KEY_7;
+            return KEY_6;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_8))
+        else if (KeyPressed(KEY_7))
         {
-            return SdlHardware.KEY_8;
+            return KEY_7;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_9))
+        else if (KeyPressed(KEY_8))
         {
-            return SdlHardware.KEY_9;
+            return KEY_8;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_0))
+        else if (KeyPressed(KEY_9))
         {
-            return SdlHardware.KEY_0;
+            return KEY_9;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_UP))
+        else if (KeyPressed(KEY_0))
         {
-            return SdlHardware.KEY_UP;
+            return KEY_0;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_DOWN))
+        else if (KeyPressed(KEY_UP))
         {
-            return SdlHardware.KEY_DOWN;
+            return KEY_UP;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_RIGHT))
+        else if (KeyPressed(KEY_DOWN))
         {
-            return SdlHardware.KEY_RIGHT;
+            return KEY_DOWN;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_LEFT))
+        else if (KeyPressed(KEY_RIGHT))
         {
-            return SdlHardware.KEY_LEFT;
+            return KEY_RIGHT;
         }
-        else if (SdlHardware.KeyPressed(SdlHardware.KEY_RETURN))
+        else if (KeyPressed(KEY_LEFT))
         {
-            return SdlHardware.KEY_RETURN;
+            return KEY_LEFT;
+        }
+        else if (KeyPressed(KEY_RETURN))
+        {
+            return KEY_RETURN;
         }
         else
         {
@@ -551,175 +556,179 @@ class SdlHardware
 
     public static string KeyToString(int keyCode)
     {
-        if (keyCode == SdlHardware.KEY_ESC)
+        if (keyCode == KEY_ESC)
         {
             return "ESC";
         }
-        else if (keyCode == SdlHardware.KEY_SPC)
+        else if (keyCode == KEY_SPC)
         {
             return "SPC";
         }
-        else if (keyCode == SdlHardware.KEY_A)
+        else if (keyCode == KEY_DEL)
+        {
+            return "DEL";
+        }
+        else if (keyCode == KEY_A)
         {
             return "A";
         }
-        else if (keyCode == SdlHardware.KEY_B)
+        else if (keyCode == KEY_B)
         {
             return "B";
         }
-        else if (keyCode == SdlHardware.KEY_C)
+        else if (keyCode == KEY_C)
         {
             return "C";
         }
-        else if (keyCode == SdlHardware.KEY_D)
+        else if (keyCode == KEY_D)
         {
             return "D";
         }
-        else if (keyCode == SdlHardware.KEY_E)
+        else if (keyCode == KEY_E)
         {
             return "E";
         }
-        else if (keyCode == SdlHardware.KEY_F)
+        else if (keyCode == KEY_F)
         {
             return "F";
         }
-        else if (keyCode == SdlHardware.KEY_G)
+        else if (keyCode == KEY_G)
         {
             return "G";
         }
-        else if (keyCode == SdlHardware.KEY_H)
+        else if (keyCode == KEY_H)
         {
             return "H";
         }
-        else if (keyCode == SdlHardware.KEY_I)
+        else if (keyCode == KEY_I)
         {
             return "I";
         }
-        else if (keyCode == SdlHardware.KEY_J)
+        else if (keyCode == KEY_J)
         {
             return "J";
         }
-        else if (keyCode == SdlHardware.KEY_K)
+        else if (keyCode == KEY_K)
         {
             return "K";
         }
-        else if (keyCode == SdlHardware.KEY_L)
+        else if (keyCode == KEY_L)
         {
             return "L";
         }
-        else if (keyCode == SdlHardware.KEY_M)
+        else if (keyCode == KEY_M)
         {
             return "M";
         }
-        else if (keyCode == SdlHardware.KEY_N)
+        else if (keyCode == KEY_N)
         {
             return "N";
         }
-        else if (keyCode == SdlHardware.KEY_O)
+        else if (keyCode == KEY_O)
         {
             return "O";
         }
-        else if (keyCode == SdlHardware.KEY_P)
+        else if (keyCode == KEY_P)
         {
             return "P";
         }
-        else if (keyCode == SdlHardware.KEY_Q)
+        else if (keyCode == KEY_Q)
         {
             return "Q";
         }
-        else if (keyCode == SdlHardware.KEY_R)
+        else if (keyCode == KEY_R)
         {
             return "R";
         }
-        else if (keyCode == SdlHardware.KEY_S)
+        else if (keyCode == KEY_S)
         {
             return "S";
         }
-        else if (keyCode == SdlHardware.KEY_T)
+        else if (keyCode == KEY_T)
         {
             return "T";
         }
-        else if (keyCode == SdlHardware.KEY_U)
+        else if (keyCode == KEY_U)
         {
             return "U";
         }
-        else if (keyCode == SdlHardware.KEY_V)
+        else if (keyCode == KEY_V)
         {
             return "V";
         }
-        else if (keyCode == SdlHardware.KEY_W)
+        else if (keyCode == KEY_W)
         {
             return "W";
         }
-        else if (keyCode == SdlHardware.KEY_X)
+        else if (keyCode == KEY_X)
         {
             return "X";
         }
-        else if (keyCode == SdlHardware.KEY_Y)
+        else if (keyCode == KEY_Y)
         {
             return "Y";
         }
-        else if (keyCode == SdlHardware.KEY_Z)
+        else if (keyCode == KEY_Z)
         {
             return "Z";
         }
-        else if (keyCode == SdlHardware.KEY_1)
+        else if (keyCode == KEY_1)
         {
             return "1";
         }
-        else if (keyCode == SdlHardware.KEY_2)
+        else if (keyCode == KEY_2)
         {
             return "2";
         }
-        else if (keyCode == SdlHardware.KEY_3)
+        else if (keyCode == KEY_3)
         {
             return "3";
         }
-        else if (keyCode == SdlHardware.KEY_4)
+        else if (keyCode == KEY_4)
         {
             return "4";
         }
-        else if (keyCode == SdlHardware.KEY_5)
+        else if (keyCode == KEY_5)
         {
             return "5";
         }
-        else if (keyCode == SdlHardware.KEY_6)
+        else if (keyCode == KEY_6)
         {
             return "6";
         }
-        else if (keyCode == SdlHardware.KEY_7)
+        else if (keyCode == KEY_7)
         {
             return "7";
         }
-        else if (keyCode == SdlHardware.KEY_8)
+        else if (keyCode == KEY_8)
         {
             return "8";
         }
-        else if (keyCode == SdlHardware.KEY_9)
+        else if (keyCode == KEY_9)
         {
             return "9";
         }
-        else if (keyCode == SdlHardware.KEY_0)
+        else if (keyCode == KEY_0)
         {
             return "0";
         }
-        else if (keyCode == SdlHardware.KEY_UP)
+        else if (keyCode == KEY_UP)
         {
             return "UP";
         }
-        else if (keyCode == SdlHardware.KEY_DOWN)
+        else if (keyCode == KEY_DOWN)
         {
             return "DOWN";
         }
-        else if (keyCode == SdlHardware.KEY_RIGHT)
+        else if (keyCode == KEY_RIGHT)
         {
             return "RIGHT";
         }
-        else if (keyCode == SdlHardware.KEY_LEFT)
+        else if (keyCode == KEY_LEFT)
         {
             return "LEFT";
         }
-        else if (keyCode == SdlHardware.KEY_RETURN)
+        else if (keyCode == KEY_RETURN)
         {
             return "RETURN";
         }

@@ -6,6 +6,14 @@
 
 13 - 05 - 2019, Diego Lezcano: class diagram, created de Menu class and made MainMenu 
 	and ChangeConstrolsMenu inherit from it
+
+15 - 05 - 2019, Diego Lezcano: implemented the DetectKey method wich returns te key code of the pressed key.
+    Implemented the KeyInUse method from the Controls class
+
+16 - 05 - 2019, Diego Lezcano:  Implemented SwapKey and KeyToString functions. 
+	Started the new game option and SaveMenu class.
+
+17 - 05 - 2019, Diego Lezcano: Implemented a way for the player to introduce a name for the save file.
 */
 class Ys
 {
