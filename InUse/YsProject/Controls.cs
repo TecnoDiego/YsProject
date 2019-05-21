@@ -1,66 +1,43 @@
 ﻿
 class Controls
 {
-    protected int up;
-    protected int down;
-    protected int left;
-    protected int right;
-    protected int useItem;
-    protected int toggleWalk;
-    protected int inventory;
-    protected int pause;
-    protected int accept;
-    protected int cancel;
+    public static int Up;
+    public static int Down;
+    public static int Left;
+    public static int Right;
+    public static int UseItem;
+    public static int ToggleWalk;
+    public static int Inventory;
+    public static int Pause;
+    public static int Accept;
+    public static int Cancel;
 
     public Controls()
     {
-        up = SdlHardware.KEY_UP;
-        down = SdlHardware.KEY_DOWN;
-        left = SdlHardware.KEY_LEFT;
-        right = SdlHardware.KEY_RIGHT;
-        useItem = SdlHardware.KEY_Z;
-        toggleWalk = SdlHardware.KEY_X;
-        inventory = SdlHardware.KEY_C;
-        pause = SdlHardware.KEY_ESC;
-        accept = useItem;
-        cancel = toggleWalk;
+        Up = SdlHardware.KEY_UP;
+        Down = SdlHardware.KEY_DOWN;
+        Left = SdlHardware.KEY_LEFT;
+        Right = SdlHardware.KEY_RIGHT;
+        UseItem = SdlHardware.KEY_Z;
+        ToggleWalk = SdlHardware.KEY_X;
+        Inventory = SdlHardware.KEY_C;
+        Pause = SdlHardware.KEY_ESC;
+        Accept = UseItem;
+        Cancel = ToggleWalk;
     }
-
-    public int GetUp() { return up; }
-    public int GetDown() { return down; }
-    public int GetLeft() { return left; }
-    public int GetRight() { return right; }
-    public int GetUseItem() { return useItem; }
-    public int GetToggleWalk() { return toggleWalk; }
-    public int GetInventory() { return inventory; }
-    public int GetPause() { return pause; }
-    public int GetAccept() { return accept; }
-    public int GetCancel() { return cancel; }
-
-    public void SetUp(int up) { this.up = up; }
-    public void SetDown(int down) { this.down = down; }
-    public void SetLeft(int left) { this.left = left; }
-    public void SetRight(int right) { this.right = right; }
-    public void SetUseItem(int useItem) { this.useItem = useItem; }
-    public void SetToggleWalk(int toggleWalk) { this.toggleWalk = toggleWalk; }
-    public void SetInventory(int inventory) { this.inventory = inventory; }
-    public void SetPause(int pause) { this.pause = pause; }
-    public void SetAccept(int accept) { this.accept = accept; }
-    public void SetCancel(int cancel) { this.cancel = cancel; }
 
     public bool CheckKeysInUse()
     {
-       if (SdlHardware.KeyPressed(GetUp()) ||
-                SdlHardware.KeyPressed(GetDown()) ||
-                SdlHardware.KeyPressed(GetLeft()) ||
-                SdlHardware.KeyPressed(GetRight()) ||
-                SdlHardware.KeyPressed(GetUseItem()) ||
-                SdlHardware.KeyPressed(GetUseItem()) ||
-                SdlHardware.KeyPressed(GetToggleWalk()) ||
-                SdlHardware.KeyPressed(GetInventory()) ||
-                SdlHardware.KeyPressed(GetPause()) ||
-                SdlHardware.KeyPressed(GetAccept()) ||
-                SdlHardware.KeyPressed(GetCancel()))
+       if (SdlHardware.KeyPressed(Up) ||
+                SdlHardware.KeyPressed(Down) ||
+                SdlHardware.KeyPressed(Left) ||
+                SdlHardware.KeyPressed(Right) ||
+                SdlHardware.KeyPressed(UseItem) ||
+                SdlHardware.KeyPressed(ToggleWalk) ||
+                SdlHardware.KeyPressed(Inventory) ||
+                SdlHardware.KeyPressed(Pause) ||
+                SdlHardware.KeyPressed(Accept) ||
+                SdlHardware.KeyPressed(Cancel))
         {
             return true;
         }
@@ -72,45 +49,45 @@ class Controls
 
     public void SwapKey(int currentKey, int newKey)
     {
-        if (currentKey == up)
+        if (currentKey == Up)
         {
-            SetUp(newKey);
+            Up = newKey;
         }
-        else if (currentKey == down)
+        else if (currentKey == Down)
         {
-            SetDown(newKey);
+            Down = newKey;
         }
-        else if (currentKey == left)
+        else if (currentKey == Left)
         {
-            SetLeft(newKey);
+            Left = newKey;
         }
-        else if (currentKey == right)
+        else if (currentKey == Right)
         {
-            SetRight(newKey);
+            Right = newKey;
         }
-        else if (currentKey == useItem)
+        else if (currentKey == UseItem)
         {
-            SetUseItem(newKey);
+            UseItem = newKey;
         }
-        else if (currentKey == inventory)
+        else if (currentKey == Inventory)
         {
-            SetInventory(newKey);
+            Inventory = newKey;
         }
-        else if (currentKey == pause)
+        else if (currentKey == Pause)
         {
-            SetPause(newKey);
+            Pause = newKey;
         }
-        else if (currentKey == accept)
+        else if (currentKey == Accept)
         {
-            SetAccept(newKey);
+            Accept = newKey;
         }
-        else if (currentKey == cancel)
+        else if (currentKey == Cancel)
         {
-            SetCancel(newKey);
+            Cancel = newKey;
         }
-        else if (currentKey == toggleWalk)
+        else if (currentKey == ToggleWalk)
         {
-            SetToggleWalk(newKey);
+            ToggleWalk = newKey;
         }
     }
 }

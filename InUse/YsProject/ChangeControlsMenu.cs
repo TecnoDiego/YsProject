@@ -19,43 +19,43 @@ class ChangeControlsMenu : Menu
             100, 30,
             0xC0, 0xC0, 0xC0,
             font);
-        SdlHardware.WriteHiddenText("Up: " + SdlHardware.KeyToString(control.GetUp()),
+        SdlHardware.WriteHiddenText("Up: " + SdlHardware.KeyToString(Controls.Up),
             100, 40,
             0xC0, 0xC0, 0xC0,
             font);
-        SdlHardware.WriteHiddenText("Down: " + SdlHardware.KeyToString(control.GetDown()),
+        SdlHardware.WriteHiddenText("Down: " + SdlHardware.KeyToString(Controls.Down),
             100, 50,
             0xC0, 0xC0, 0xC0,
             font);
-        SdlHardware.WriteHiddenText("Left: " + SdlHardware.KeyToString(control.GetLeft()),
+        SdlHardware.WriteHiddenText("Left: " + SdlHardware.KeyToString(Controls.Left),
             100, 60,
             0xC0, 0xC0, 0xC0,
             font);
-        SdlHardware.WriteHiddenText("Right: " + SdlHardware.KeyToString(control.GetRight()),
+        SdlHardware.WriteHiddenText("Right: " + SdlHardware.KeyToString(Controls.Right),
             100, 70,
             0xC0, 0xC0, 0xC0,
             font);
-        SdlHardware.WriteHiddenText("Use item: " + SdlHardware.KeyToString(control.GetUseItem()),
+        SdlHardware.WriteHiddenText("Use item: " + SdlHardware.KeyToString(Controls.UseItem),
             100, 80,
             0xC0, 0xC0, 0xC0,
             font);
-        SdlHardware.WriteHiddenText("Toggle walk: " + SdlHardware.KeyToString(control.GetToggleWalk()),
+        SdlHardware.WriteHiddenText("Toggle walk: " + SdlHardware.KeyToString(Controls.ToggleWalk),
             100, 90,
             0xC0, 0xC0, 0xC0,
             font);
-        SdlHardware.WriteHiddenText("Open inventory: " + SdlHardware.KeyToString(control.GetInventory()),
+        SdlHardware.WriteHiddenText("Open inventory: " + SdlHardware.KeyToString(Controls.Inventory),
             100, 100,
             0xC0, 0xC0, 0xC0,
             font);
-        SdlHardware.WriteHiddenText("Pause: " + SdlHardware.KeyToString(control.GetPause()),
+        SdlHardware.WriteHiddenText("Pause: " + SdlHardware.KeyToString(Controls.Pause),
             100, 110,
             0xC0, 0xC0, 0xC0,
             font);
-        SdlHardware.WriteHiddenText("Accept: " + SdlHardware.KeyToString(control.GetAccept()),
+        SdlHardware.WriteHiddenText("Accept: " + SdlHardware.KeyToString(Controls.Accept),
             100, 120,
             0xC0, 0xC0, 0xC0,
             font);
-        SdlHardware.WriteHiddenText("Cancel: " + SdlHardware.KeyToString(control.GetCancel()),
+        SdlHardware.WriteHiddenText("Cancel: " + SdlHardware.KeyToString(Controls.Cancel),
             100, 130,
             0xC0, 0xC0, 0xC0,
             font);
@@ -106,8 +106,6 @@ class ChangeControlsMenu : Menu
             }
             SdlHardware.Pause(100);
         }
-        while (!SdlHardware.KeyPressed(control.GetCancel()));
+        while (!SdlHardware.KeyPressed(Controls.Cancel));
     }
-
-    public Controls GetNewControls() { return this.control; }
 }

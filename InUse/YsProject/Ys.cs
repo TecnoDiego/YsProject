@@ -14,6 +14,8 @@
 	Started the new game option and SaveMenu class.
 
 17 - 05 - 2019, Diego Lezcano: Implemented a way for the player to introduce a name for the save file.
+
+20 - 05 - 2019, Diego Lezcano: Implemented partialy a way to save the state of the game with files
 */
 class Ys
 {
@@ -34,7 +36,7 @@ class Ys
 
             if(main.GetChosenOption() == 1)
             {
-                SaveMenu newGame = new SaveMenu();
+                SaveMenu newGame = new SaveMenu(new Player());
                 newGame.Run();
                 Game ys = new Game();
             }
@@ -52,7 +54,6 @@ class Ys
             {
                 ChangeControlsMenu change = new ChangeControlsMenu(control);
                 change.Run();
-                control = change.GetNewControls();
             }
         } while (main.GetChosenOption() != 4);
 
