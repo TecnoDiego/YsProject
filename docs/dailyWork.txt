@@ -14,4 +14,7 @@ detect if a suitable key has been pressed
 
 17 - 05 - 2019, Diego Lezcano: Implemented a way for the player to introduce a name for the save file.
 
-20 - 05 - 2019, Diego Lezcano: Implemented partialy a way to save the state of the game with files
+20 - 05 - 2019, Diego Lezcano: Implemented partialy a way to save the state of the game with files.
+
+22 - 05 - 2019, Diego Lezcano: Finished the ChangeControlsMenu (now it works) and started to implement the
+	ChooseSlot method

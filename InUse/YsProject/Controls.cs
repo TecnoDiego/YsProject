@@ -1,6 +1,11 @@
 ﻿
+using System;
+using System.IO;
+
 class Controls
 {
+    public static string ControlsOrder = "YsControlsSaveFile up down left" +
+        " right item walk inventory pause accept cancel";
     public static int Up;
     public static int Down;
     public static int Left;
@@ -26,7 +31,7 @@ class Controls
         Cancel = ToggleWalk;
     }
 
-    public bool CheckKeysInUse()
+    public static bool CheckKeysInUse()
     {
        if (SdlHardware.KeyPressed(Up) ||
                 SdlHardware.KeyPressed(Down) ||
@@ -47,7 +52,81 @@ class Controls
         }
     }
 
-    public void SwapKey(int currentKey, int newKey)
+    public static void SaveControls()
+    {
+        try
+        {
+            StreamWriter controlsFile = new StreamWriter("controls.txt");
+            controlsFile.WriteLine(ControlsOrder);
+            controlsFile.WriteLine(Up);
+            controlsFile.WriteLine(Down);
+            controlsFile.WriteLine(Left);
+            controlsFile.WriteLine(Right);
+            controlsFile.WriteLine(UseItem);
+            controlsFile.WriteLine(ToggleWalk);
+            controlsFile.WriteLine(Inventory);
+            controlsFile.WriteLine(Pause);
+            controlsFile.WriteLine(Accept);
+            controlsFile.WriteLine(Cancel);
+            controlsFile.Close();
+        }
+        catch (PathTooLongException)
+        {
+            Console.WriteLine("Path too long");
+        }
+        catch (FileNotFoundException)
+        {
+            Console.WriteLine("File not found");
+        }
+        catch (IOException io)
+        {
+            Console.WriteLine("Read/Write error" + io.Message);
+        }
+        catch(Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+    }
+
+    public static void LoadControls()
+    {
+        try
+        {
+            StreamReader controlsFile = new StreamReader("controls.txt");
+            if (controlsFile.ReadLine() == ControlsOrder)
+            {
+                Up = Convert.ToInt32(controlsFile.ReadLine());
+                Down = Convert.ToInt32(controlsFile.ReadLine());
+                Left = Convert.ToInt32(controlsFile.ReadLine());
+                Right = Convert.ToInt32(controlsFile.ReadLine());
+                UseItem = Convert.ToInt32(controlsFile.ReadLine());
+                ToggleWalk = Convert.ToInt32(controlsFile.ReadLine());
+                Inventory = Convert.ToInt32(controlsFile.ReadLine());
+                Pause = Convert.ToInt32(controlsFile.ReadLine());
+                Accept = Convert.ToInt32(controlsFile.ReadLine());
+                Cancel = Convert.ToInt32(controlsFile.ReadLine());
+            }
+            controlsFile.Close();
+        }
+        catch (PathTooLongException)
+        {
+            Console.WriteLine("Path too long");
+        }
+        catch (FileNotFoundException)
+        {
+            Console.WriteLine("File not found");
+        }
+        catch (IOException io)
+        {
+            Console.WriteLine("Read/Write error" + io.Message);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+    }
+
+    public static void SwapKeys(int currentKey, int newKey)
     {
         if (currentKey == Up)
         {

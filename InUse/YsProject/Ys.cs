@@ -16,7 +16,11 @@
 17 - 05 - 2019, Diego Lezcano: Implemented a way for the player to introduce a name for the save file.
 
 20 - 05 - 2019, Diego Lezcano: Implemented partialy a way to save the state of the game with files
+
+22 - 05 - 2019, Diego Lezcano: Finished the ChangeControlsMenu (now it works) and started to implement the
+	ChooseSlot method
 */
+
 class Ys
 {
     static void Main(string[] args)
@@ -27,7 +31,8 @@ class Ys
         font = new Font("data/Joystix.ttf", 12);
 
         MainMenu main = new MainMenu ();
-        Controls control = new Controls();
+        Controls c = new Controls();
+        Controls.LoadControls();
 
         do
         {
@@ -52,11 +57,11 @@ class Ys
             }
             else if(main.GetChosenOption() == 3)
             {
-                ChangeControlsMenu change = new ChangeControlsMenu(control);
+                ChangeControlsMenu change = new ChangeControlsMenu();
                 change.Run();
             }
         } while (main.GetChosenOption() != 4);
-
+        Controls.SaveControls();
     }
 }
 

@@ -3,13 +3,16 @@ using System;
 
 class ChangeControlsMenu : Menu
 {
-    protected Controls control;
     protected int pressedKey;
     protected int keyToChange;
-    public ChangeControlsMenu(Controls control)
+    protected bool currentKeyChoosen;
+    protected bool newKeyChoosen;
+    public ChangeControlsMenu()
     {
         font = new Font("data/Joystix.ttf", 12);
-        this.control = control;
+        currentKeyChoosen = false;
+        newKeyChoosen = false;
+        keyToChange = -1;
     }
 
     public override void DrawMenu()
@@ -78,33 +81,47 @@ class ChangeControlsMenu : Menu
     {
         do
         {
-            DrawMenu();
-            DrawBottomMessage("Press the key you want to change");
-            keyToChange = SdlHardware.DetectKey();
-
-            if (keyToChange < 0 || !control.CheckKeysInUse())
+            do
             {
                 DrawMenu();
-                DrawBottomMessage("Key not in use");
+                DrawBottomMessage("Press the key you want to change");
+                keyToChange = SdlHardware.DetectKey();
+                if (keyToChange > 0)
+                    currentKeyChoosen = true;
+            }
+            while (!currentKeyChoosen);
+            
+            if (!Controls.CheckKeysInUse())
+            {
+                DrawMenu();
+                DrawBottomMessage("Key not in use. Choose again");
+                keyToChange = -1;
+                currentKeyChoosen = false;
             }
             else
             {
-                DrawMenu();
-                DrawBottomMessage("Press the new key");
-                pressedKey = SdlHardware.DetectKey();
-                if (pressedKey < 0)
+                do
                 {
                     DrawMenu();
-                    DrawBottomMessage("Invalid Key");
+                    DrawBottomMessage("Press the new key");
+                    pressedKey = SdlHardware.DetectKey();
+                    if (pressedKey < 0)
+                    {
+                        DrawMenu();
+                        DrawBottomMessage("Invalid Key");
+                    }
+                    else
+                    {
+                        DrawMenu();
+                        DrawBottomMessage("Key changed");
+                        Controls.SwapKeys(keyToChange, pressedKey);
+                        newKeyChoosen = true;
+                    }
                 }
-                else
-                {
-                    DrawMenu();
-                    DrawBottomMessage("Key changed");
-                    // SwapKeys(keyToChange, pressedKey);
-                }
+                while (!newKeyChoosen);
+                
             }
-            SdlHardware.Pause(100);
+            SdlHardware.Pause(50);
         }
         while (!SdlHardware.KeyPressed(Controls.Cancel));
     }
