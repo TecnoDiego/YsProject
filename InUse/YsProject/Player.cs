@@ -8,11 +8,12 @@
     protected bool recovering;
     protected bool walking;
 
-    public Player() : base(2)
+    public Player(string image) : base(2, image)
     {
         gold = 0;
         exp = 0;
         lvl = 1;
+        speed = 3;
         attack = lvl * 2; // temporary
         attack = lvl * 2;
         recovering = false;
@@ -38,25 +39,28 @@
     //When walking is true, the character moves slower, otherwise, it moves faster
     public void ChangeMovement() { this.walking = !walking; }
 
-    /*
-    public void MoveRight(Room room)
+    
+    public void MoveRight(/*Room room*/)
     {
-        
+        x += xSpeed;
+        ChangeDirection(RIGHT);
     }
 
-    public void MoveLeft(Room room)
+    public void MoveLeft(/*Room room*/)
     {
-        
+        x -= xSpeed;
+        ChangeDirection(LEFT);
     }
 
-    public void MoveUp(Room room)
+    public void MoveUp(/*Room room*/)
     {
-
+        y -= xSpeed;
+        ChangeDirection(UP);
     }
 
-    public void MoveDown(Room room)
+    public void MoveDown(/*Room room*/)
     {
-
+        y += xSpeed;
+        ChangeDirection(DOWN);
     }
-    */
 }

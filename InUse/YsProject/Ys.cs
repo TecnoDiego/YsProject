@@ -44,9 +44,10 @@ class Ys
             if(main.GetChosenOption() == 1)
             {
                 SdlHardware.Pause(20);
-                SaveMenu newGame = new SaveMenu(new Player());
+                SaveMenu newGame = new SaveMenu(new Player("data/adol.png"));
                 newGame.Run();
                 Game ys = new Game();
+                ys.Run();
                 SdlHardware.Pause(100);
             }
             else if (main.GetChosenOption() == 2)

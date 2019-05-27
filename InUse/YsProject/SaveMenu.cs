@@ -14,11 +14,13 @@ class SaveMenu : Menu
     protected string name;
     protected Player playerToSave;
     protected bool nameChosen;
+    protected string showSlot;
 
     public SaveMenu(Player player)
     {
         playerToSave = player;
         name = "";
+        showSlot = "";
         SLOTS = new Slot[MAX_SLOTS];
         nameChosen = false;
         if(File.Exists("slots.txt"))
@@ -58,26 +60,34 @@ class SaveMenu : Menu
         SdlHardware.Pause(105);
     }
 
-    public void ChooseSlot()
+    public int ChooseSlot()
     {
         int selectedSlotKey = SdlHardware.DetectKey();
         int selectedSlot = 0;
         if (selectedSlotKey == SdlHardware.KEY_1)
         {
             selectedSlot = 1;
+            showSlot = "1";
         }
         if (selectedSlotKey == SdlHardware.KEY_2)
         {
             selectedSlot = 2;
+            showSlot = "2";
         }
         if (selectedSlotKey == SdlHardware.KEY_3)
         {
             selectedSlot = 3;
+            showSlot = "3";
         }
-        playerToSave.SetName(name);
-        SLOTS[selectedSlot].name = name;
-        SLOTS[selectedSlot].fileName = "slot1" + name + ".txt";
+        if(selectedSlot != 0)
+        {
+            playerToSave.SetName(name);
+            SLOTS[selectedSlot - 1].name = name;
+            SLOTS[selectedSlot - 1].fileName = "slot1" + name + ".txt";
+        }
+        
         SaveSlotsInfo();
+        return selectedSlot;
     }
 
     public override void DrawMenu()
@@ -100,7 +110,7 @@ class SaveMenu : Menu
             0xC0, 0xC0, 0xC0,
             font);
         if(nameChosen)
-            SdlHardware.WriteHiddenText("Choose slot: ",
+            SdlHardware.WriteHiddenText("Choose slot: " + showSlot,
                 100, 120,
                 0xC0, 0xC0, 0xC0,
                 font);
@@ -210,6 +220,7 @@ class SaveMenu : Menu
 
     public void Run()
     {
+        int slot = 0;
         do
         {
             DrawMenu();
@@ -217,7 +228,7 @@ class SaveMenu : Menu
             {
                 DrawMenu();
                 if(!nameChosen)
-                 ChooseName();
+                    ChooseName();
             } while (!SdlHardware.KeyPressed(Controls.Accept));
             
             
@@ -226,13 +237,12 @@ class SaveMenu : Menu
                 do
                 {
                     DrawMenu();
-                    ChooseSlot();
+                    slot = ChooseSlot();
                 } while (!SdlHardware.KeyPressed(Controls.Accept));
             }
-                
         }
-        while (!SdlHardware.KeyPressed(Controls.Cancel));
-        Save(SLOTS[0]);
+        while (!SdlHardware.KeyPressed(Controls.Cancel) &&  slot != 0);
+        Save(SLOTS[slot]);
     }
 }
 

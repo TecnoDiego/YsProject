@@ -11,28 +11,50 @@ class Game
 
     public Game()
     {
-        player = new Player();
+        player = new Player("data/adol.png");
+        player.MoveTo(300, 300);
+        room = new Room();
         finished = false;
     }
 
     public void SaveGame()
     {
-
     }
 
     void UpdateScreen()
     {
-        // TO DO
+        SdlHardware.ClearScreen();
+        //room.DrawOnHiddenScreen();
+        player.DrawOnHiddenScreen();
+        SdlHardware.ShowHiddenScreen();
     }
 
     void CheckUserInput()
     {
-       // TO DO
+        if (SdlHardware.KeyPressed(Controls.Cancel))
+        {
+            finished = true;
+        }
+        if (SdlHardware.KeyPressed(Controls.Right))
+        {
+            player.MoveRight();
+        }
+        if (SdlHardware.KeyPressed(Controls.Left))
+        {
+            player.MoveLeft();
+        }
+        if (SdlHardware.KeyPressed(Controls.Up))
+        {
+            player.MoveUp();
+        }
+        if (SdlHardware.KeyPressed(Controls.Down))
+        {
+            player.MoveDown();
+        }
     }
 
     void UpdateWorld()
     {
-        // TO DO
     }
 
     void CheckGameStatus()

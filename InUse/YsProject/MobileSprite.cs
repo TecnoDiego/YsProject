@@ -5,7 +5,7 @@ abstract class MobileSprite : Sprite
     protected int speed;
     protected string name;
 
-    public MobileSprite(int hp)
+    public MobileSprite(int hp, string image) : base(image)
     {
         SetHp(hp);
     }

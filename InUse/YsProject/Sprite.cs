@@ -20,9 +20,6 @@
     public const byte DOWNLEFT = 5;
     public const byte UPRIGHT = 6;
     public const byte UPLEFT = 7;
-    public const byte APPEARING = 8;
-    public const byte DISAPPEARING = 9;
-    public const byte JUMPING = 9;
 
     public Sprite()
     {
@@ -31,6 +28,7 @@
         width = 32;
         height = 32;
         visible = true;
+        containsSequence = false;
         sequence = new Image[numDirections][];
         currentDirection = RIGHT;
     }
@@ -191,6 +189,4 @@
         x = startX;
         y = startY;
     }
-
-
 }

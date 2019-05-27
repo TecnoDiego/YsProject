@@ -129,6 +129,7 @@ class ChangeControlsMenu : Menu
     {
         do
         {
+
             ChooseKeyToChange();
             if (currentKeyChoosen)
             {
