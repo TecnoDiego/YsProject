@@ -18,3 +18,5 @@ detect if a suitable key has been pressed
 
 22 - 05 - 2019, Diego Lezcano: Finished the ChangeControlsMenu (now it works) and started to implement the
 	ChooseSlot method
+
+23 - 05 - 2019, Diego Lezcano: Upgraded the ChangeControlsMenu and SaveMenu classes

@@ -26,7 +26,7 @@ class MainMenu : Menu
             100, 150,
             0xA0, 0xA0, 0xA0,
             font);
-        SdlHardware.WriteHiddenText("Q. Quit",
+        SdlHardware.WriteHiddenText("ESC. Quit",
             100, 200,
             0x80, 0x80, 0x80,
             font);
@@ -51,7 +51,7 @@ class MainMenu : Menu
             {
                 option = 3;
             }
-            if (SdlHardware.KeyPressed(SdlHardware.KEY_Q))
+            if (SdlHardware.KeyPressed(SdlHardware.KEY_ESC))
             {
                 option = 4;
             }

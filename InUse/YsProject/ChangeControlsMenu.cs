@@ -18,7 +18,7 @@ class ChangeControlsMenu : Menu
     public override void DrawMenu()
     {
         SdlHardware.ClearScreen();
-        SdlHardware.WriteHiddenText("Current controls: ",
+        SdlHardware.WriteHiddenText("CURRENT CONTROLS ",
             100, 30,
             0xC0, 0xC0, 0xC0,
             font);
@@ -74,52 +74,66 @@ class ChangeControlsMenu : Menu
         SdlHardware.Pause(200);
     }
 
-   
+    public void ChooseKeyToChange()
+    {
+        do
+        {
+            DrawMenu();
+            DrawBottomMessage("Press the key you want to change");
+            keyToChange = SdlHardware.DetectKey();
+            if (keyToChange > 0 && keyToChange != SdlHardware.KEY_ESC &&
+                keyToChange != SdlHardware.KEY_RETURN)
+                currentKeyChoosen = true;
+        }
+        while (!currentKeyChoosen && !SdlHardware.KeyPressed(SdlHardware.KEY_ESC));
+    }
+
+    public void ChooseNewKey()
+    {
+        if (!Controls.CheckKeysInUse())
+        {
+            DrawMenu();
+            DrawBottomMessage("Invalid key. Choose again");
+            keyToChange = -1;
+            currentKeyChoosen = false;
+        }
+        else
+        {
+            do
+            {
+                DrawMenu();
+                DrawBottomMessage("Press the new key");
+                pressedKey = SdlHardware.DetectKey();
+
+            }
+            while (pressedKey < 0);
+
+            if (pressedKey < 0)
+            {
+                DrawMenu();
+                DrawBottomMessage("Invalid Key");
+            }
+            else
+            {
+                DrawMenu();
+                DrawBottomMessage("Key changed");
+                Controls.SwapKeys(keyToChange, pressedKey);
+                newKeyChoosen = true;
+            }
+            SdlHardware.Pause(30);
+        }
+    }
     
 
     public void Run()
     {
         do
         {
-            do
+            ChooseKeyToChange();
+            if (currentKeyChoosen)
             {
-                DrawMenu();
-                DrawBottomMessage("Press the key you want to change");
-                keyToChange = SdlHardware.DetectKey();
-                if (keyToChange > 0)
-                    currentKeyChoosen = true;
-            }
-            while (!currentKeyChoosen);
-            
-            if (!Controls.CheckKeysInUse())
-            {
-                DrawMenu();
-                DrawBottomMessage("Key not in use. Choose again");
-                keyToChange = -1;
-                currentKeyChoosen = false;
-            }
-            else
-            {
-                do
-                {
-                    DrawMenu();
-                    DrawBottomMessage("Press the new key");
-                    pressedKey = SdlHardware.DetectKey();
-                    if (pressedKey < 0)
-                    {
-                        DrawMenu();
-                        DrawBottomMessage("Invalid Key");
-                    }
-                    else
-                    {
-                        DrawMenu();
-                        DrawBottomMessage("Key changed");
-                        Controls.SwapKeys(keyToChange, pressedKey);
-                        newKeyChoosen = true;
-                    }
-                }
-                while (!newKeyChoosen);
-                
+                SdlHardware.Pause(30);
+                ChooseNewKey();
             }
             SdlHardware.Pause(50);
         }

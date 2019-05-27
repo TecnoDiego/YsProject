@@ -26,9 +26,9 @@ class Controls
         UseItem = SdlHardware.KEY_Z;
         ToggleWalk = SdlHardware.KEY_X;
         Inventory = SdlHardware.KEY_C;
-        Pause = SdlHardware.KEY_ESC;
-        Accept = UseItem;
-        Cancel = ToggleWalk;
+        Pause = SdlHardware.KEY_P;
+        Accept = SdlHardware.KEY_RETURN;
+        Cancel = SdlHardware.KEY_ESC;
     }
 
     public static bool CheckKeysInUse()
@@ -40,9 +40,7 @@ class Controls
                 SdlHardware.KeyPressed(UseItem) ||
                 SdlHardware.KeyPressed(ToggleWalk) ||
                 SdlHardware.KeyPressed(Inventory) ||
-                SdlHardware.KeyPressed(Pause) ||
-                SdlHardware.KeyPressed(Accept) ||
-                SdlHardware.KeyPressed(Cancel))
+                SdlHardware.KeyPressed(Pause))
         {
             return true;
         }
@@ -155,14 +153,6 @@ class Controls
         else if (currentKey == Pause)
         {
             Pause = newKey;
-        }
-        else if (currentKey == Accept)
-        {
-            Accept = newKey;
-        }
-        else if (currentKey == Cancel)
-        {
-            Cancel = newKey;
         }
         else if (currentKey == ToggleWalk)
         {

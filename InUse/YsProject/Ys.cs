@@ -19,6 +19,8 @@
 
 22 - 05 - 2019, Diego Lezcano: Finished the ChangeControlsMenu (now it works) and started to implement the
 	ChooseSlot method
+
+23 - 05 - 2019, Diego Lezcano: Upgraded the ChangeControlsMenu and SaveMenu classes
 */
 
 class Ys
@@ -41,9 +43,11 @@ class Ys
 
             if(main.GetChosenOption() == 1)
             {
+                SdlHardware.Pause(20);
                 SaveMenu newGame = new SaveMenu(new Player());
                 newGame.Run();
                 Game ys = new Game();
+                SdlHardware.Pause(100);
             }
             else if (main.GetChosenOption() == 2)
             {
@@ -59,6 +63,7 @@ class Ys
             {
                 ChangeControlsMenu change = new ChangeControlsMenu();
                 change.Run();
+                SdlHardware.Pause(100);
             }
         } while (main.GetChosenOption() != 4);
         Controls.SaveControls();

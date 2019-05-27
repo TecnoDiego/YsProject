@@ -21,12 +21,17 @@ class SaveMenu : Menu
         name = "";
         SLOTS = new Slot[MAX_SLOTS];
         nameChosen = false;
-
-        for (int i = 0; i < MAX_SLOTS; i++)
+        if(File.Exists("slots.txt"))
+            LoadSlotsInfo();
+        else
         {
-            SLOTS[i].name = "";
-            SLOTS[i].fileName = "";
+            for (int i = 0; i < MAX_SLOTS; i++)
+            {
+                SLOTS[i].name = "Empty";
+                SLOTS[i].fileName = "Empty" + i + ".txt";
+            }
         }
+
     }
 
     public void ChooseName()
@@ -34,9 +39,9 @@ class SaveMenu : Menu
         //DateTime pressTic, drawTic;
         //TimeSpan diff;
         //pressTic = DateTime.Now;
-        int key = SdlHardware.DetectKey();
         //drawTic = DateTime.Now;
         //diff = drawTic - pressTic;
+        int key = SdlHardware.DetectKey();
         if (key != SdlHardware.KEY_SPC && key != SdlHardware.KEY_ESC &&
             key != SdlHardware.KEY_UP && key != SdlHardware.KEY_DOWN &&
             key != SdlHardware.KEY_LEFT && key != SdlHardware.KEY_RIGHT &&
@@ -48,6 +53,9 @@ class SaveMenu : Menu
         {
             name = name.Remove(name.Length - 1);
         }
+        else if (key == SdlHardware.KEY_RETURN)
+            nameChosen = true;
+        SdlHardware.Pause(105);
     }
 
     public void ChooseSlot()
@@ -67,26 +75,23 @@ class SaveMenu : Menu
             selectedSlot = 3;
         }
         playerToSave.SetName(name);
-        SLOTS[0].name = name;
-        SLOTS[0].fileName = "slot1_" + name + ".txt";
+        SLOTS[selectedSlot].name = name;
+        SLOTS[selectedSlot].fileName = "slot1" + name + ".txt";
+        SaveSlotsInfo();
     }
 
     public override void DrawMenu()
     {
-        Console.WriteLine("slot name: " + SLOTS[0].name);
         SdlHardware.ClearScreen();
-        SdlHardware.WriteHiddenText("1. " + SLOTS[0].name == "" ? 
-            "Empty" : SLOTS[0].name,
+        SdlHardware.WriteHiddenText("1. " + SLOTS[0].name,
             100, 20,
             0xC0, 0xC0, 0xC0,
             font);
-        SdlHardware.WriteHiddenText("2. "/* + SLOTS[1].name == "" ? 
-            "Empty" : SLOTS[1].name*/,
+        SdlHardware.WriteHiddenText("2. " + SLOTS[1].name,
             100, 40,
             0xC0, 0xC0, 0xC0,
             font);
-        SdlHardware.WriteHiddenText("3. "/* + SLOTS[2].name == "" ? 
-            "Empty" : SLOTS[2].name*/,
+        SdlHardware.WriteHiddenText("3. " + SLOTS[2].name,
             100, 60,
             0xC0, 0xC0, 0xC0,
             font);
@@ -95,20 +100,82 @@ class SaveMenu : Menu
             0xC0, 0xC0, 0xC0,
             font);
         if(nameChosen)
-            SdlHardware.WriteHiddenText("Choose slot: " + name,
+            SdlHardware.WriteHiddenText("Choose slot: ",
                 100, 120,
                 0xC0, 0xC0, 0xC0,
                 font);
+        SdlHardware.WriteHiddenText("Note: SPACEBAR to delete",
+            100, 200,
+            0xC0, 0xC0, 0xC0,
+            font);
         SdlHardware.ShowHiddenScreen();
-
-        if(nameChosen)
-            ChooseName();
-        ChooseSlot();
     }
 
     public int GetSlots()
     {
         return MAX_SLOTS;
+    }
+
+    private void SaveSlotsInfo()
+    {
+        try
+        {
+            StreamWriter slotsFile = new StreamWriter("slots.txt");
+
+            foreach (Slot s in SLOTS)
+            {
+                slotsFile.WriteLine(s.name + ";" + s.fileName);
+            }
+            slotsFile.Close();
+        }
+        catch (PathTooLongException)
+        {
+            Console.WriteLine("Path too long");
+        }
+        catch (FileNotFoundException)
+        {
+            Console.WriteLine("File not found");
+        }
+        catch (IOException io)
+        {
+            Console.WriteLine("Read/Write error: " + io.Message);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+    }
+
+    private void LoadSlotsInfo()
+    {
+        try
+        {
+            StreamReader slotsFile = new StreamReader("slots.txt");
+            for(int i = 0;i < MAX_SLOTS; i++)
+            {
+                string[] slotInfo = slotsFile.ReadLine().Split(';');
+                SLOTS[i].name = slotInfo[0];
+                SLOTS[i].fileName = slotInfo[1];
+            }
+            slotsFile.Close();
+        }
+        catch (PathTooLongException)
+        {
+            Console.WriteLine("Path too long");
+        }
+        catch (FileNotFoundException)
+        {
+            Console.WriteLine("File not found");
+        }
+        catch (IOException io)
+        {
+            Console.WriteLine("Read/Write error: " + io.Message);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+        
     }
 
     public void Save(Slot slot)
@@ -146,7 +213,23 @@ class SaveMenu : Menu
         do
         {
             DrawMenu();
-            SdlHardware.Pause(100); // Works but I'm not sure why
+            do
+            {
+                DrawMenu();
+                if(!nameChosen)
+                 ChooseName();
+            } while (!SdlHardware.KeyPressed(Controls.Accept));
+            
+            
+            if (nameChosen)
+            {
+                do
+                {
+                    DrawMenu();
+                    ChooseSlot();
+                } while (!SdlHardware.KeyPressed(Controls.Accept));
+            }
+                
         }
         while (!SdlHardware.KeyPressed(Controls.Cancel));
         Save(SLOTS[0]);

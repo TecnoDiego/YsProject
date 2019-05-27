@@ -1,11 +1,11 @@
 YsControlsSaveFile up down left right item walk inventory pause accept cancel
-119
+273
 274
 276
 275
 122
 120
 99
+112
+13
 27
-122
-120
