@@ -3,10 +3,10 @@
 class Game
 {
     protected Player player;
-    protected bool finished;
+    public static bool finished;
     protected Font font;
     protected Room room;
-    protected SaveMenu saveMenu;
+    protected PauseMenu pause;
 
 
     public Game()
@@ -24,7 +24,7 @@ class Game
     void UpdateScreen()
     {
         SdlHardware.ClearScreen();
-        //room.DrawOnHiddenScreen();
+        room.DrawOnHiddenScreen();
         player.DrawOnHiddenScreen();
         SdlHardware.ShowHiddenScreen();
     }
@@ -33,23 +33,25 @@ class Game
     {
         if (SdlHardware.KeyPressed(Controls.Cancel))
         {
-            finished = true;
+            SdlHardware.Pause(300);
+            pause = new PauseMenu(player);
+            pause.Run();
         }
         if (SdlHardware.KeyPressed(Controls.Right))
         {
-            player.MoveRight();
+            player.MoveRight(room);
         }
         if (SdlHardware.KeyPressed(Controls.Left))
         {
-            player.MoveLeft();
+            player.MoveLeft(room);
         }
         if (SdlHardware.KeyPressed(Controls.Up))
         {
-            player.MoveUp();
+            player.MoveUp(room);
         }
         if (SdlHardware.KeyPressed(Controls.Down))
         {
-            player.MoveDown();
+            player.MoveDown(room);
         }
     }
 

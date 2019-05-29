@@ -2,33 +2,28 @@
 class PauseMenu : Menu
 {
     protected int option;
-    //protected Image cover;
+    protected Player playerToSave;
 
-    public PauseMenu()
+    public PauseMenu(Player p)
     {
-        //cover = new Image("data/cover.png");
+        playerToSave = p;
         option = 0;
     }
 
     public override void DrawMenu()
     {
         SdlHardware.ClearScreen();
-        //SdlHardware.DrawHiddenImage(cover, 0, 0);
-        SdlHardware.WriteHiddenText("1. New Game",
+        SdlHardware.WriteHiddenText("1. Save Game",
             100, 50,
             0xC0, 0xC0, 0xC0,
             font);
-        SdlHardware.WriteHiddenText("2. Load Game",
+        SdlHardware.WriteHiddenText("2. Change controls",
             100, 100,
             0xA0, 0xA0, 0xA0,
             font);
-        SdlHardware.WriteHiddenText("3. Change Controls",
+        SdlHardware.WriteHiddenText("3. To title",
             100, 150,
             0xA0, 0xA0, 0xA0,
-            font);
-        SdlHardware.WriteHiddenText("Q. Quit",
-            100, 200,
-            0x80, 0x80, 0x80,
             font);
         SdlHardware.ShowHiddenScreen();
     }
@@ -41,28 +36,22 @@ class PauseMenu : Menu
         {
             if (SdlHardware.KeyPressed(SdlHardware.KEY_1))
             {
-                option = 1;
+                SaveMenu save = new SaveMenu(playerToSave, false);
+                save.Run();
             }
             if (SdlHardware.KeyPressed(SdlHardware.KEY_2))
             {
-                option = 2;
+                ChangeControlsMenu changeControls = new ChangeControlsMenu();
+                changeControls.Run();
             }
             if (SdlHardware.KeyPressed(SdlHardware.KEY_3))
             {
-                option = 3;
-            }
-            if (SdlHardware.KeyPressed(SdlHardware.KEY_Q))
-            {
-                option = 4;
+                Game.finished = true;
             }
             SdlHardware.Pause(100);
         }
-        while (option == 0);
-    }
-
-    public int GetChosenOption()
-    {
-        return option;
+        while (!SdlHardware.KeyPressed(Controls.Cancel) && !Game.finished);
+        SdlHardware.Pause(200);
     }
 }
 

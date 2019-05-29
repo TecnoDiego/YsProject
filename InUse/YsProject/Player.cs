@@ -13,7 +13,8 @@
         gold = 0;
         exp = 0;
         lvl = 1;
-        speed = 3;
+        xSpeed = 1;
+        ySpeed = 1;
         attack = lvl * 2; // temporary
         attack = lvl * 2;
         recovering = false;
@@ -40,27 +41,27 @@
     public void ChangeMovement() { this.walking = !walking; }
 
     
-    public void MoveRight(/*Room room*/)
+    public void MoveRight(Room room)
     {
         x += xSpeed;
         ChangeDirection(RIGHT);
     }
 
-    public void MoveLeft(/*Room room*/)
+    public void MoveLeft(Room room)
     {
         x -= xSpeed;
         ChangeDirection(LEFT);
     }
 
-    public void MoveUp(/*Room room*/)
+    public void MoveUp(Room room)
     {
-        y -= xSpeed;
+        y -= ySpeed;
         ChangeDirection(UP);
     }
 
-    public void MoveDown(/*Room room*/)
+    public void MoveDown(Room room)
     {
-        y += xSpeed;
+        y += ySpeed;
         ChangeDirection(DOWN);
     }
 }

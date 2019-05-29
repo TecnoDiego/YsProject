@@ -11,19 +11,30 @@ class SaveMenu : Menu
    
     public static Slot[] SLOTS;
     public static int MAX_SLOTS = 3;
+    protected int selectedSlot;
     protected string name;
     protected Player playerToSave;
     protected bool nameChosen;
     protected string showSlot;
+    protected bool newGame;
 
-    public SaveMenu(Player player)
+    public SaveMenu(Player player, bool newGame)
     {
         playerToSave = player;
-        name = "";
+
+        if (newGame)
+            name = "";
+        else
+            name = player.GetName();
+
         showSlot = "";
-        SLOTS = new Slot[MAX_SLOTS];
+        this.newGame = newGame;
+        selectedSlot = 0;
         nameChosen = false;
-        if(File.Exists("slots.txt"))
+
+        SLOTS = new Slot[MAX_SLOTS];
+
+        if (File.Exists("slots.txt"))
             LoadSlotsInfo();
         else
         {
@@ -63,7 +74,6 @@ class SaveMenu : Menu
     public int ChooseSlot()
     {
         int selectedSlotKey = SdlHardware.DetectKey();
-        int selectedSlot = 0;
         if (selectedSlotKey == SdlHardware.KEY_1)
         {
             selectedSlot = 1;
@@ -84,9 +94,9 @@ class SaveMenu : Menu
             playerToSave.SetName(name);
             SLOTS[selectedSlot - 1].name = name;
             SLOTS[selectedSlot - 1].fileName = "slot1" + name + ".txt";
+            SaveSlotsInfo();
         }
         
-        SaveSlotsInfo();
         return selectedSlot;
     }
 
@@ -119,11 +129,6 @@ class SaveMenu : Menu
             0xC0, 0xC0, 0xC0,
             font);
         SdlHardware.ShowHiddenScreen();
-    }
-
-    public int GetSlots()
-    {
-        return MAX_SLOTS;
     }
 
     private void SaveSlotsInfo()
@@ -193,11 +198,14 @@ class SaveMenu : Menu
         try
         {
             StreamWriter saveFile = new StreamWriter(slot.fileName);
+            playerToSave.SetName(name);
             saveFile.WriteLine("YsSaveFile");
             saveFile.WriteLine(playerToSave.GetName());
             saveFile.WriteLine(playerToSave.GetGold());
             saveFile.WriteLine(playerToSave.GetExp());
             saveFile.WriteLine(playerToSave.GetLvl());
+            saveFile.WriteLine(playerToSave.GetX());
+            saveFile.WriteLine(playerToSave.GetY());
             saveFile.Close();
         }
         catch (PathTooLongException)
@@ -220,29 +228,37 @@ class SaveMenu : Menu
 
     public void Run()
     {
-        int slot = 0;
         do
         {
             DrawMenu();
-            do
+            if (newGame)
             {
-                DrawMenu();
-                if(!nameChosen)
-                    ChooseName();
-            } while (!SdlHardware.KeyPressed(Controls.Accept));
-            
+                do
+                {
+                    DrawMenu();
+                    if (!nameChosen) // when newGame == false there is no need to ask for a name
+                        ChooseName();
+                } while (!SdlHardware.KeyPressed(Controls.Accept));
+            }
             
             if (nameChosen)
             {
                 do
                 {
-                    DrawMenu();
-                    slot = ChooseSlot();
+
+
+                    do
+                    {
+                        selectedSlot = ChooseSlot();
+                        DrawMenu();
+                        if (selectedSlot != 0)
+                            SdlHardware.Pause(200);
+                    } while (selectedSlot == 0);
+                    
                 } while (!SdlHardware.KeyPressed(Controls.Accept));
             }
-        }
-        while (!SdlHardware.KeyPressed(Controls.Cancel) &&  slot != 0);
-        Save(SLOTS[slot]);
+        } while (!SdlHardware.KeyPressed(Controls.Cancel) &&  selectedSlot == 0);
+        Save(SLOTS[selectedSlot - 1]);
     }
 }
 

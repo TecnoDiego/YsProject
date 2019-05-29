@@ -55,6 +55,7 @@
     <Compile Include="Game.cs" />
     <Compile Include="House.cs" />
     <Compile Include="Image.cs" />
+    <Compile Include="LoadMenu.cs" />
     <Compile Include="MainMenu.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="MobileSprite.cs" />

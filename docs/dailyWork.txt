@@ -1,22 +1,22 @@
-17 - 04 - 2019, Diego Lezcano: Created game basic structure and main menu.
+17 - 04 - 2019, Created game basic structure and main menu.
 
-06 - 05 - 2019, Diego Lezcano: Create classes Controls and ChangeControlsMenu, 
+06 - 05 - 2019, Create classes Controls and ChangeControlsMenu, 
 detect if a suitable key has been pressed
 
-13 - 05 - 2019, Diego Lezcano: class diagram, created de Menu class and made MainMenu 
+13 - 05 - 2019, class diagram, created de Menu class and made MainMenu 
 	and ChangeConstrolsMenu inherit from it
 
-15 - 05 - 2019, Diego Lezcano: implemented the DetectKey method wich returns te key code of the pressed key.
+15 - 05 - 2019, implemented the DetectKey method wich returns te key code of the pressed key.
 	Implemented the KeyInUse method from the Controls class
 
-16 - 05 - 2019, Diego Lezcano:  Implemented SwapKey and KeyToString functions. 
+16 - 05 - 2019, Implemented SwapKey and KeyToString functions. 
 	Started the new game option and SaveMenu class.
 
-17 - 05 - 2019, Diego Lezcano: Implemented a way for the player to introduce a name for the save file.
+17 - 05 - 2019, Implemented a way for the player to introduce a name for the save file.
 
-20 - 05 - 2019, Diego Lezcano: Implemented partialy a way to save the state of the game with files.
+20 - 05 - 2019, Implemented partialy a way to save the state of the game with files.
 
-22 - 05 - 2019, Diego Lezcano: Finished the ChangeControlsMenu (now it works) and started to implement the
+22 - 05 - 2019, Finished the ChangeControlsMenu (now it works) and started to implement the
 	ChooseSlot method
 
-23 - 05 - 2019, Diego Lezcano: Upgraded the ChangeControlsMenu and SaveMenu classes
+23 - 05 - 2019, Upgraded the ChangeControlsMenu and SaveMenu classes

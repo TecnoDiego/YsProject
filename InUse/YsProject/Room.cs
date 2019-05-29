@@ -19,10 +19,10 @@ class Room
             {
                 int posX = col * tileWidth + leftMargin;
                 int posY = row * tileHeight + topMargin;
-                switch (levelData[row][col])
+                /*switch (levelData[row][col])
                 {
                         // TO DO
-                }
+                }*/
             }
         }
     }
