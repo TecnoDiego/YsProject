@@ -1,15 +1,35 @@
 ﻿
 class Room
 {
-    protected int mapHeight = 13, mapWidth = 17;
-    protected int tileHeight = 32, tileWidth = 32;
-    protected int leftMargin = 100, topMargin = 50;
+    protected int mapHeight = 16, mapWidth = 36;
+    protected int tileHeight = 16, tileWidth = 16;
+    protected int leftMargin = 16, topMargin = 16;
+    protected Image wall;
+    protected Image floor;
 
-    protected string[] levelData;
+    protected string[] levelData = {
+        "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+        "w                                  w",
+        "w                                  w",
+        "w                                  w",
+        "w                                  w",
+        "w                                  w",
+        "w                                  w",
+        "w                                  w",
+        "w                                  w",
+        "w                                  w",
+        "w                                  w",
+        "w                                  w",
+        "w                                  w",
+        "w                                  w",
+        "w                                  w",
+        "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"
+    };
 
     public Room()
     {
-        
+        floor = new Image("data/grassTile.png");
+        wall = new Image("data/wallTile.png");
     }
     public void DrawOnHiddenScreen()
     {
@@ -19,10 +39,11 @@ class Room
             {
                 int posX = col * tileWidth + leftMargin;
                 int posY = row * tileHeight + topMargin;
-                /*switch (levelData[row][col])
+                switch (levelData[row][col])
                 {
-                        // TO DO
-                }*/
+                    case ' ': SdlHardware.DrawHiddenImage(floor, posX, posY); break;
+                    case 'w': SdlHardware.DrawHiddenImage(wall, posX, posY); break;
+                }
             }
         }
     }

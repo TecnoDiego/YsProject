@@ -3,8 +3,8 @@
 class Game
 {
     protected Player player;
-    public static bool finished;
-    protected Font font;
+    protected bool finished;
+    //protected Font font;
     protected Room room;
     protected PauseMenu pause;
 
@@ -12,7 +12,7 @@ class Game
     public Game()
     {
         player = new Player("data/adol.png");
-        player.MoveTo(300, 300);
+        player.MoveTo(200, 200);
         room = new Room();
         finished = false;
     }
@@ -35,7 +35,7 @@ class Game
         {
             SdlHardware.Pause(300);
             pause = new PauseMenu(player);
-            pause.Run();
+            pause.Run(ref finished);
         }
         if (SdlHardware.KeyPressed(Controls.Right))
         {
@@ -57,6 +57,7 @@ class Game
 
     void UpdateWorld()
     {
+        //player.Move(room);
     }
 
     void CheckGameStatus()

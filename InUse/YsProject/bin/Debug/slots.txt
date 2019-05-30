@@ -1,3 +1,3 @@
-AAGG1;slot1AAGG1.txt
-DAAAGGGJDD;slot1DAAAGGGJDD.txt
-KHH;slot1KHH.txt
+AAAAF;slot1AAAAF.txt
+AASAA22;slot1AASAA22.txt
+;slot1.txt

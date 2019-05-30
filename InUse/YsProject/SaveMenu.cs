@@ -119,7 +119,7 @@ class SaveMenu : Menu
             100, 100,
             0xC0, 0xC0, 0xC0,
             font);
-        if(nameChosen)
+        if(nameChosen || !newGame)
             SdlHardware.WriteHiddenText("Choose slot: " + showSlot,
                 100, 120,
                 0xC0, 0xC0, 0xC0,
@@ -241,7 +241,7 @@ class SaveMenu : Menu
                 } while (!SdlHardware.KeyPressed(Controls.Accept));
             }
             
-            if (nameChosen)
+            if (nameChosen || !newGame)
             {
                 do
                 {

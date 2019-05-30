@@ -28,7 +28,7 @@ class PauseMenu : Menu
         SdlHardware.ShowHiddenScreen();
     }
 
-    public void Run()
+    public void Run(ref bool finished)
     {
         option = 0;
         DrawMenu();
@@ -37,6 +37,7 @@ class PauseMenu : Menu
             if (SdlHardware.KeyPressed(SdlHardware.KEY_1))
             {
                 SaveMenu save = new SaveMenu(playerToSave, false);
+                SdlHardware.Pause(200);
                 save.Run();
             }
             if (SdlHardware.KeyPressed(SdlHardware.KEY_2))
@@ -46,11 +47,11 @@ class PauseMenu : Menu
             }
             if (SdlHardware.KeyPressed(SdlHardware.KEY_3))
             {
-                Game.finished = true;
+                finished = true;
             }
             SdlHardware.Pause(100);
         }
-        while (!SdlHardware.KeyPressed(Controls.Cancel) && !Game.finished);
+        while (!SdlHardware.KeyPressed(Controls.Cancel) && !finished);
         SdlHardware.Pause(200);
     }
 }

@@ -19,6 +19,8 @@
         attack = lvl * 2;
         recovering = false;
         walking = false;
+        width = 25;
+        height = 32;
     }
 
     public int GetGold() { return this.gold; }
@@ -43,25 +45,37 @@
     
     public void MoveRight(Room room)
     {
-        x += xSpeed;
-        ChangeDirection(RIGHT);
+        if(room.CanMoveTo(x, y, x + width, y + width))
+        {
+            x += xSpeed;
+            ChangeDirection(RIGHT);
+        }
     }
 
     public void MoveLeft(Room room)
     {
-        x -= xSpeed;
-        ChangeDirection(LEFT);
+        if (room.CanMoveTo(x, y, x + width, y + width))
+        {
+            x -= xSpeed;
+            ChangeDirection(LEFT);
+        }
     }
 
     public void MoveUp(Room room)
     {
-        y -= ySpeed;
-        ChangeDirection(UP);
+        if (room.CanMoveTo(x, y, x + width, y + width))
+        {
+            y -= ySpeed;
+            ChangeDirection(UP);
+        }
     }
 
     public void MoveDown(Room room)
     {
-        y += ySpeed;
-        ChangeDirection(DOWN);
+        if (room.CanMoveTo(x, y, x + width, y + width))
+        {
+            y += ySpeed;
+            ChangeDirection(DOWN);
+        }
     }
 }
